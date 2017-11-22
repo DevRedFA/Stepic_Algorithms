@@ -1,5 +1,9 @@
 package algorithms;
 
+import org.junit.Assert;
+
+
+
 public class Lsd {
     public static int R = 3;
 
@@ -40,6 +44,7 @@ public class Lsd {
     public static void main(String[] args) throws InterruptedException {
         String[] a = {"AA", "CCBA", "BBAA", "AB", "AAA", "ACB"};
         sortLsd(a, 4);
-        Thread.sleep(1000);
+        String[] result = {"AA", "AAA", "AB", "ACB", "BBAA", "CCBA"};
+        Assert.assertArrayEquals(a, result);
     }
 }
