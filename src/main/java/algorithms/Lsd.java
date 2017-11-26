@@ -3,11 +3,10 @@ package algorithms;
 import org.junit.Assert;
 
 
-
 public class Lsd {
-    public static int R = 3;
+    private static int R = 3;
 
-    public static int getKey(String s, int max, int k) {
+    private static int getKey(String s, int max, int k) {
         if (k > max - s.length()) {
             return s.charAt(k - (max - s.length())) - 65;
         } else {
@@ -15,7 +14,7 @@ public class Lsd {
         }
     }
 
-    public static void sortLsd(String[] a, int K) {
+    private static void sortLsd(String[] a, int K) {
         int max = 0;
         for (String st : a) {
             if (st.length() > max) {
@@ -25,18 +24,16 @@ public class Lsd {
         int[] count = new int[R + 2];
         String[] temp = new String[a.length];
         for (int d = K - 1; d >= 0; d--) {
-            for (int i = 0; i < a.length; i++) {
-                count[getKey(a[i], max, d) + 2]++;
+            for (String anA : a) {
+                count[getKey(anA, K, d) + 2]++;
             }
             for (int i = 0; i < count.length - 1; i++) {
                 count[i + 1] += count[i];
             }
-            for (int i = 0; i < a.length; i++) {
-                temp[count[getKey(a[i], max, d) + 1]++] = a[i];
+            for (String anA : a) {
+                temp[count[getKey(anA, K, d) + 1]++] = anA;
             }
-            for (int i = 0; i < a.length; i++) {
-                a[i] = temp[i];
-            }
+            System.arraycopy(temp, 0, a, 0, a.length);
             count = new int[R + 2];
         }
     }
