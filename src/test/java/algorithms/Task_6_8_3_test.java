@@ -30,7 +30,7 @@ public class Task_6_8_3_test {
         byte[] inputBytes = input.getBytes();
         byte[] expectedBytes = answer.getBytes();
         byte[] resultBytes = doTest(inputBytes);
-        assertArrayEquals(expectedBytes, resultBytes);
+        assertEquals(new String(expectedBytes).trim(), new String(resultBytes).trim());
     }
 
     @Test
@@ -59,6 +59,6 @@ public class Task_6_8_3_test {
                 .concat(System.lineSeparator())
                 .getBytes();
         byte[] resultBytes = doTest(inputBytes);
-        assertEquals(new String(expectedBytes), new String(resultBytes));
+        assertEquals(new String(expectedBytes).trim(), new String(resultBytes).trim());
     }
 }

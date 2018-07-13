@@ -14,7 +14,7 @@ public class Task_6_4_13 {
                 .flatMap(s -> Stream.of(s.split("[\\p{Punct}\\s]+")))
                 .filter(s -> !s.isEmpty())
                 .map(String::toLowerCase)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Long>comparingByValue()

@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class Task_4_1_10_continuous_backpack_test {
 
@@ -27,11 +27,10 @@ public class Task_4_1_10_continuous_backpack_test {
                 + "60 20" + System.lineSeparator()
                 + " 100 50" + System.lineSeparator()
                 + "120 30" + System.lineSeparator();
-        String answer = "180.000" + System.lineSeparator();
+        String answer = "180,000" + System.lineSeparator();
         byte[] inputBytes = input.getBytes();
-        byte[] expectedBytes = answer.getBytes();
         byte[] resultBytes = doTest(inputBytes);
-        assertArrayEquals(expectedBytes, resultBytes);
+        assertEquals(answer, new String(resultBytes));
     }
 
 
@@ -40,11 +39,10 @@ public class Task_4_1_10_continuous_backpack_test {
         String input = "1 9" + System.lineSeparator()
                 + "100 10" + System.lineSeparator()
                 + "50 10" + System.lineSeparator();
-        String answer = "90.000" + System.lineSeparator();
+        String answer = "90,000" + System.lineSeparator();
         byte[] inputBytes = input.getBytes();
-        byte[] expectedBytes = answer.getBytes();
         byte[] resultBytes = doTest(inputBytes);
-        assertArrayEquals(expectedBytes, resultBytes);
+        assertEquals(answer, new String(resultBytes));
     }
 
 }
